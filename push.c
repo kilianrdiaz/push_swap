@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 17:42:00 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/11/22 17:42:01 by kroyo-di         ###   ########.fr       */
+/*   Created: 2024/11/22 17:43:54 by kroyo-di          #+#    #+#             */
+/*   Updated: 2024/11/22 19:32:46 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack *stack)
+void	push(t_stack **src, t_stack **dest)
 {
-	int	temp;
+	t_stack	*new_node;
 
-	if (get_nelems(stack) <= 1)
-		return ;
-	temp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = temp;
+	new_node = create_node((*src)->value, *dest);
+	delete_node(src);
+	*dest = new_node;
 }
 
-void	sa(t_stack **a)
+void	pa(t_stack **a, t_stack **b)
 {
-	swap(*a);
-	ft_printf("sa\n");
+	push(b, a);
+	ft_printf("pa\n");
 }
 
-void	sb(t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	swap(*b);
-	ft_printf("sb\n");
-}
-
-void	ss(t_stack **a, t_stack **b)
-{
-	swap(*a);
-	swap(*b);
-	ft_printf("ss\n");
+	push(a, b);
+	ft_printf("pb\n");
 }

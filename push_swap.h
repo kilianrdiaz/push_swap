@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/22 17:42:38 by kroyo-di          #+#    #+#             */
+/*   Updated: 2024/11/22 18:54:18 by kroyo-di         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -15,7 +27,17 @@ typedef struct s_stack
 void	print_error(void);
 void	get_stack(int ac, char **av, t_stack **stack);
 void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	delete_node(t_stack **node);
 
 int		get_nelems(t_stack *stack);
+
+t_stack	*create_node(int value, t_stack *last_node);
+
+//ELIMINAR ANTES DE ENTREGAR
+void	print_stack(t_stack *stack_a, t_stack *stack_b);
 
 #endif	

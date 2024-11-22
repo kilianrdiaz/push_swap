@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/22 17:43:23 by kroyo-di          #+#    #+#              #
+#    Updated: 2024/11/22 18:13:53 by kroyo-di         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
-SRC = push_swap.c get_stack.c print_error.c utils.c swap.c
+SRC = push_swap.c get_stack.c print_error.c utils.c swap.c push.c rotate.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 

@@ -1,43 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 17:42:00 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/11/22 17:42:01 by kroyo-di         ###   ########.fr       */
+/*   Created: 2024/11/22 17:41:48 by kroyo-di          #+#    #+#             */
+/*   Updated: 2024/11/22 20:13:44 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack *stack)
-{
-	int	temp;
 
-	if (get_nelems(stack) <= 1)
+void	rotate(t_stack **stack)
+{
+	t_stack	*temp;
+	t_stack *iterator;
+
+	if (*stack == NULL || *stack->next == NULL)
 		return ;
-	temp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = temp;
+
+	temp = *stack;
+	*stack = (*stack)->next;
+	while (stack->next != NULL)
+		stack = stack->next;
+	*stack->next = temp;
+	temp->next = NULL;
 }
 
-void	sa(t_stack **a)
+void	ra(t_stack **a)
 {
-	swap(*a);
-	ft_printf("sa\n");
+	
 }
 
-void	sb(t_stack **b)
+void	rb(t_stack **b)
 {
-	swap(*b);
-	ft_printf("sb\n");
+
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
-	swap(*a);
-	swap(*b);
-	ft_printf("ss\n");
+
 }
