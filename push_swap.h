@@ -1,5 +1,5 @@
-#ifndef PUSH_SWAP.H
-# define PUSH_SWAP.H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -13,5 +13,9 @@ typedef struct s_stack
 }	t_stack;
 
 void	print_error(void);
+void	get_stack(int ac, char **av, t_stack **stack);
+void	sa(t_stack **a);
+
+int		get_nelems(t_stack *stack);
 
 #endif	
