@@ -26,12 +26,18 @@ typedef struct s_stack
 
 void	print_error(void);
 void	get_stack(int ac, char **av, t_stack **stack);
+void	delete_node(t_stack **node);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
-void	delete_node(t_stack **node);
+void    ra(t_stack **a);
+void    rb(t_stack **b);
+void    rr(t_stack **a, t_stack **b);
+void    rra(t_stack **a);
+void    rrb(t_stack **b);
+void    rrr(t_stack **a, t_stack **b);
 
 int		get_nelems(t_stack *stack);
 
