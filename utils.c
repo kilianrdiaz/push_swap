@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	get_nelems(t_stack *stack)
+int		get_nelems(t_stack *stack)
 {
 	int	count;
 
@@ -25,15 +25,45 @@ int	get_nelems(t_stack *stack)
 	return (count);
 }
 
-void	delete_node(t_stack **node)
+int		get_min(t_stack *stack)
 {
-	t_stack	*temp;
+	int	min;
 
-	temp = *node;
-	*node = (*node)->next;
-	free(temp);
+	min = stack->value;
+	while (stack != NULL)
+	{
+		if (stack->value < min)
+			min = stack->value;
+		stack = stack->next;
+	}
+	return (min);
 }
 
+int		get_max(t_stack *stack)
+{
+	int	max;
+
+	max = stack->value;
+	while (stack != NULL)
+	{
+		if (stack->value > max)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+int		check_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+//BORRAR ANTES DE ENTREGAR
 void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_printf("\nSTACK A  |  STACK B\n");

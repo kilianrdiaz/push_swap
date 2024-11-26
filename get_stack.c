@@ -23,7 +23,7 @@ int	check_args(char **args)
 		j = 0;
 		while (args[i][j])
 		{
-			if (!ft_isdigit(args[i][j]))
+			if (!ft_isdigit(args[i][j]) && args[i][j] != '-') 
 				return (0);
 			j++;
 		}
@@ -32,14 +32,26 @@ int	check_args(char **args)
 	return (1);
 }
 
-t_stack	*create_node(int value, t_stack *last_node)
+int	check_duplicates(char **args)
 {
-	t_stack	*node;
+	int		i;
+	int		j;
+	char	*temp;
 
-	node = (t_stack *)malloc(sizeof(t_stack));
-	node->value = value;
-	node->next = last_node;
-	return (node);
+	i = 1;
+	temp = args[i];
+	while (temp)
+	{
+		j = i + 1;	
+		while (args[j])
+		{
+			if (ft_strcmp(temp, args[j]) == 0)
+				return (0);
+			j++;
+		}
+		temp = args[++i];
+	}
+	return (1);
 }
 
 void	get_stack(int ac, char **av, t_stack **stack)
@@ -49,7 +61,7 @@ void	get_stack(int ac, char **av, t_stack **stack)
 	t_stack *last_node;
 	
 	i = ac;
-	if (!check_args(av))
+	if (!check_args(av) || !check_duplicates(av))
 		print_error();
 	last_node = NULL;
 	while (--i)

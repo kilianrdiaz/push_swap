@@ -26,16 +26,7 @@ int	main(int ac, char **av)
 	
 	//TESTS
 	print_stack(stack_a, stack_b);
-	sa(&stack_a);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	rr(&stack_a, &stack_b);
-	rrr(&stack_a, &stack_b);
-	sa(&stack_a);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
+	sort_3(&stack_a);
 	print_stack(stack_a, stack_b);
 	return (0);
 }
