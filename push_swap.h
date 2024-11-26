@@ -38,8 +38,12 @@ void    rr(t_stack **a, t_stack **b);
 void    rra(t_stack **a);
 void    rrb(t_stack **b);
 void    rrr(t_stack **a, t_stack **b);
+void	sort_3(t_stack **stack);
 
 int		get_nelems(t_stack *stack);
+int		get_min(t_stack *stack);
+int		get_max(t_stack *stack);
+int		check_sorted(t_stack *stack);
 
 t_stack	*create_node(int value, t_stack *last_node);
 

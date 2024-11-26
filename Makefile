@@ -16,7 +16,8 @@ LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
-SRC = push_swap.c get_stack.c print_error.c utils.c swap.c push.c rotate.c reverse.c
+SRC = push_swap.c get_stack.c print_error.c utils.c swap.c push.c rotate.c reverse.c \
+	node_utils.c sort_3.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 
