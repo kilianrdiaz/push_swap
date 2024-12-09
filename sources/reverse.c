@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:52:28 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/04 17:52:40 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/07 22:09:15 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	rra(t_stack **a)
 void	rrb(t_stack **b)
 {
 	reverse_rotate(b);
-	ft_printf("rra\n");
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	ft_printf("rra\n");
+	ft_printf("rrr\n");
 }

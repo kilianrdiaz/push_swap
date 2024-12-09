@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:42:38 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/04 18:39:49 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/09 20:11:22 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 {
 	int				value;
 	int				moves;
+	struct s_stack	*pair;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -40,13 +41,17 @@ void    rra(t_stack **a);
 void    rrb(t_stack **b);
 void    rrr(t_stack **a, t_stack **b);
 void	sort_3(t_stack **stack);
+void	pair_a(t_stack **stack_a, t_stack **b);
 
 int		get_nelems(t_stack *stack);
 int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
 int		check_sorted(t_stack *stack);
+int		get_node_pos(int value, t_stack *stack);
+int		is_upper_half(t_stack *node, t_stack *stack);
 
 t_stack	*create_node(int value, t_stack *last_node);
+t_stack *get_cheapest(t_stack *a, t_stack *b);
 
 //ELIMINAR ANTES DE ENTREGAR
 void	print_stack(t_stack *stack_a, t_stack *stack_b);

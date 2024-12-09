@@ -6,13 +6,13 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:42:54 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/04 17:53:43 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/09 19:40:42 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-int		get_nelems(t_stack *stack)
+int	get_nelems(t_stack *stack)
 {
 	int	count;
 
@@ -25,7 +25,7 @@ int		get_nelems(t_stack *stack)
 	return (count);
 }
 
-int		get_min(t_stack *stack)
+int	get_min(t_stack *stack)
 {
 	int	min;
 
@@ -39,7 +39,7 @@ int		get_min(t_stack *stack)
 	return (min);
 }
 
-int		get_max(t_stack *stack)
+int	get_max(t_stack *stack)
 {
 	int	max;
 
@@ -53,7 +53,7 @@ int		get_max(t_stack *stack)
 	return (max);
 }
 
-int		check_sorted(t_stack *stack)
+int	check_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
@@ -63,6 +63,22 @@ int		check_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+int	get_node_pos(int value, t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		if (stack->value == value)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
+}
+
 //BORRAR ANTES DE ENTREGAR
 void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {

@@ -6,7 +6,7 @@
 #    By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:32:05 by kroyo-di          #+#    #+#              #
-#    Updated: 2024/12/04 18:32:14 by kroyo-di         ###   ########.fr        #
+#    Updated: 2024/12/09 18:15:14 by kroyo-di         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 HEADER = header/push_swap.h
 SRC_DIR = sources/
 SRC = push_swap.c get_stack.c print_error.c utils.c swap.c push.c rotate.c reverse.c \
-	sort_3.c node_utils.c
+	sort_3.c node_utils.c get_pairs.c count_moves.c
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 OBJS = $(SRCS:.c=.o)
