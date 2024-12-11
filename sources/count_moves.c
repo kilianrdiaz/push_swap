@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 19:23:51 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/11 17:52:47 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/11 19:02:59 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	get_moves(t_stack *stack)
 {
 	t_stack	*top;
+
 	top = stack;
 	while (stack != NULL)
 	{
@@ -40,14 +41,13 @@ static int	ft_rra_rb(t_stack *node, t_stack *pair)
 		return (node->rev + pair->rot);
 }
 
-int calculate_cost(t_stack *node, t_stack *a, t_stack *b)
+int	calculate_cost(t_stack *node, t_stack *a, t_stack *b)
 {
-	t_stack *pair;
-	int	rr;
-	int	rrr;
-	int	ra_rrb;
-	int	rra_rb;
-	int	ret;
+	t_stack	*pair;
+	int		rr;
+	int		rrr;
+	int		ra_rrb;
+	int		rra_rb;
 
 	pair = node->pair;
 	if (node_pos(node->value, a) == 0)
@@ -58,8 +58,7 @@ int calculate_cost(t_stack *node, t_stack *a, t_stack *b)
 	rrr = ft_max(node->rev, pair->rev);
 	ra_rrb = ft_ra_rrb(node, pair);
 	rra_rb = ft_rra_rb(node, pair);
-	ret = ft_min(ft_min(rr, rrr), ft_min(ra_rrb, rra_rb));
-	return (ret + 1);
+	return (ft_min(ft_min(rr, rrr), ft_min(ra_rrb, rra_rb)) + 1);
 }
 
 t_stack	*get_cheapest(t_stack *a, t_stack *b)
@@ -83,6 +82,5 @@ t_stack	*get_cheapest(t_stack *a, t_stack *b)
 		}
 		a = a->next;
 	}
-	ft_printf("Number of moves: %d\n", moves);//ELIMINAR
 	return (cheapest);
 }
