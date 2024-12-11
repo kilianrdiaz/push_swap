@@ -6,16 +6,11 @@
 /*   By: kroyo-di <kroyo-di@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:43:31 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/09 20:31:59 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/10 19:57:55 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
-
-void	pairs_on_top(t_stack **a, t_stack **b, t_stack *node)
-{
-	if ()
-}
 
 void	sort(t_stack **a, t_stack **b)
 {

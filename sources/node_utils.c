@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:51:28 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/07 23:09:01 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:28:33 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,19 @@ void	delete_node(t_stack **node)
 	temp = *node;
 	*node = (*node)->next;
 	free(temp);
+}
+
+int	node_pos(int value, t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		if (stack->value == value)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
 }

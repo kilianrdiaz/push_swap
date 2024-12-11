@@ -6,59 +6,60 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 19:23:51 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/09 21:57:50 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:52:47 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../header/push_swap.h"
 
-int	is_upperhalf(t_stack *node, t_stack *stack)
+static void	get_moves(t_stack *stack)
 {
-	int	nelems;
-
-	nelems = get_nelems(stack);
-	if ((nelems / 2) >= get_node_pos(node->value, stack))
-		return (1);
-	else
-		return (0);
-}
-
-int	moves_to_top(t_stack *node, t_stack *stack)
-{
-	int	nelems;
-
-	nelems = get_nelems(stack);
-	if (is_upperhalf(node))
-		return (get_node_pos(node->value, stack));
-	else
-		return (get_nelems(stack) - get_node_pos(node->value, stack));
-}
-
-int	count_moves(t_stack *stack_a, t_stack *stack_b, t_stack *node)
-{
-	int		moves;
-	int		count_a;
-	int		count_b;
-
-	count_a = moves_to_top(node, stack_a);
-	count_b = moves_to_top(node->pair, stack_b);
-	moves = 0;
-	//rr
-	if (is_upperhalf(node) && is_upperhalf(node->pair))
+	t_stack	*top;
+	top = stack;
+	while (stack != NULL)
 	{
-		moves = count_a - count_b;
-		if (moves < 0)
-			return (count_a + moves + 1);
-		else if (moves > 0)
-			return (count_b + moves + 1);
+		stack->rot = node_pos(stack->value, top);
+		stack->rev = get_nelems(top) - node_pos(stack->value, top);
+		stack = stack->next;
 	}
-	//rrr
-	else if(!is_upperhalf(node) && !is_upperhalf(node->pair))
-	//ra + rrb
-	else if(is_upperhalf(node))
-	//rra + rb
-	else
+}
 
-	return (moves);
+static int	ft_ra_rrb(t_stack *node, t_stack *pair)
+{
+	if ((pair->rot - node->rot) <= pair->rev)
+		return (pair->rot);
+	else
+		return (node->rot + pair->rev);
+}
+
+static int	ft_rra_rb(t_stack *node, t_stack *pair)
+{
+	if ((pair->rev - node->rev) <= pair->rot)
+		return (pair->rev);
+	else
+		return (node->rev + pair->rot);
+}
+
+int calculate_cost(t_stack *node, t_stack *a, t_stack *b)
+{
+	t_stack *pair;
+	int	rr;
+	int	rrr;
+	int	ra_rrb;
+	int	rra_rb;
+	int	ret;
+
+	pair = node->pair;
+	if (node_pos(node->value, a) == 0)
+		return (ft_min(pair->rot, pair->rev) + 1);
+	else if (node_pos(pair->value, b) == 0)
+		return (ft_min(node->rot, node->rev) + 1);
+	rr = ft_max(node->rot, pair->rot);
+	rrr = ft_max(node->rev, pair->rev);
+	ra_rrb = ft_ra_rrb(node, pair);
+	rra_rb = ft_rra_rb(node, pair);
+	ret = ft_min(ft_min(rr, rrr), ft_min(ra_rrb, rra_rb));
+	return (ret + 1);
 }
 
 t_stack	*get_cheapest(t_stack *a, t_stack *b)
@@ -68,17 +69,20 @@ t_stack	*get_cheapest(t_stack *a, t_stack *b)
 	int		moves;
 
 	node = a;
-	moves = count_moves(a, b, node);
-	node = node->next;
-	cheapest = NULL;
-	while (node)
+	get_moves(a);
+	get_moves(b);
+	moves = calculate_cost(node, a, b);
+	cheapest = a;
+	a = a->next;
+	while (a)
 	{
-		if (count_moves(a, b, node) < moves)
+		if (calculate_cost(node, a, b) < moves)
 		{
-			moves = count_moves(a, b, node);
-			cheapest = node;
+			moves = calculate_cost(node, a, b);
+			cheapest = a;
 		}
-		node = node->next;
+		a = a->next;
 	}
+	ft_printf("Number of moves: %d\n", moves);//ELIMINAR
 	return (cheapest);
 }

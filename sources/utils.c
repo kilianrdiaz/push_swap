@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:42:54 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/09 19:40:42 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/11 17:35:27 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,6 @@ int	check_sorted(t_stack *stack)
 	return (1);
 }
 
-int	get_node_pos(int value, t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack != NULL)
-	{
-		if (stack->value == value)
-			return (i);
-		stack = stack->next;
-		i++;
-	}
-	return (-1);
-}
-
 //BORRAR ANTES DE ENTREGAR
 void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {
@@ -87,7 +72,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (stack_a != NULL)
 		{
-			ft_printf("%d", stack_a->value);
+			ft_printf("%d->%d", stack_a->value, stack_a->pair->value);
 			stack_a = stack_a->next;
 		}
 		ft_printf("\t |  ");
