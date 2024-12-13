@@ -12,21 +12,27 @@
 
 #include "../header/push_swap.h"
 
-int	check_args(char **args)
+int	check_args(char **args, int ac)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
+	long int	num;
 
 	i = 1;
-	while (args[i])
+	while (i < ac)
 	{
 		j = 0;
+		if (args[i][j] == '-' && args[i][j + 1] != '\0')
+			j++;
 		while (args[i][j])
 		{
-			if (!ft_isdigit(args[i][j]) && args[i][j] != '-')
+			if (!ft_isdigit(args[i][j]))
 				return (0);
 			j++;
 		}
+		num = ft_atol(args[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			return (0);
 		i++;
 	}
 	return (1);
@@ -61,7 +67,7 @@ void	get_stack(int ac, char **av, t_stack **stack)
 	t_stack	*last_node;
 
 	i = ac;
-	if (!check_args(av) || !check_duplicates(av))
+	if (!check_args(av, ac) || !check_duplicates(av))
 		print_error();
 	last_node = NULL;
 	while (--i)
