@@ -108,8 +108,8 @@ void	pair_b(t_stack *a, t_stack *b)
 			}
 			while (a != NULL)
 			{
-				if (b->value < a->value && a->value < b->pair->value)
-					a->pair = b;
+				if (a->value > b->value && a->value < b->pair->value)
+					b->pair = a;
 				a = a->next;
 			}
 		}

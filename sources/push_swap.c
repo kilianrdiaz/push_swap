@@ -24,13 +24,14 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	get_stack(ac, av, &stack_a);
-	//print_stack(stack_a, stack_b);
+//	print_stack(stack_a, stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
-	pair(stack_a, stack_b);
+	pair_a(stack_a, stack_b);
+	pair_b(stack_a, stack_b);
 	print_stack(stack_a, stack_b);
 	cheap = get_cheapest(stack_a, stack_b);
 	tmp = stack_a;

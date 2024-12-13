@@ -78,7 +78,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 		ft_printf("\t |  ");
 		if (stack_b != NULL)
 		{
-			ft_printf("%d", stack_b->value);
+			ft_printf("%d->%d", stack_b->value, stack_b->pair->value);
 			stack_b = stack_b->next;
 		}
 		ft_printf("\n");
