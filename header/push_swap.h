@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:42:38 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/11 18:10:58 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/13 18:36:18 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	sort_3(t_stack **stack);
 void	pair_a(t_stack *stack_a, t_stack *b);
 void	pair_b(t_stack *stack_a, t_stack *b);
 void	free_stack(t_stack **stack);
+void    get_moves(t_stack *stack);
 
 int		get_nelems(t_stack *stack);
 int		get_min(t_stack *stack);

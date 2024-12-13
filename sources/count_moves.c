@@ -6,13 +6,13 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 19:23:51 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/11 19:02:59 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/13 18:35:55 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-static void	get_moves(t_stack *stack)
+void	get_moves(t_stack *stack)
 {
 	t_stack	*top;
 
