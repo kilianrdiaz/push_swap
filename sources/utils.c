@@ -53,7 +53,7 @@ int	get_max(t_stack *stack)
 	return (max);
 }
 
-int	check_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{

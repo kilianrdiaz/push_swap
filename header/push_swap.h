@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 # include "../Libft/libft.h"
 # include "../Libft/ft_printf/ft_printf.h"
 
@@ -42,12 +43,14 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_3(t_stack **stack);
-void	pair(t_stack *stack_a, t_stack *b);
+void	pair_a(t_stack *stack_a, t_stack *b);
+void	pair_b(t_stack *stack_a, t_stack *b);
+void	free_stack(t_stack **stack);
 
 int		get_nelems(t_stack *stack);
 int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
-int		check_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack);
 int		node_pos(int value, t_stack *stack);
 int		is_upper_half(t_stack *node, t_stack *stack);
 

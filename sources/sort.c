@@ -12,20 +12,32 @@
 
 #include "../header/push_swap.h"
 
+void	sort_2(t_stack **a, t_stack **b)
+{
+	if (!is_sorted())
+	{
+}
+
 void	sort(t_stack **a, t_stack **b)
 {
 	t_stack	*node;
 	t_stak	*tmp;
 
-	pb(a, b);
-	pb(a, b);
-	node = NULL;
-	tmp = *a;
-	while (get_nelems(*a) > 3)
+	if (is_sorted(*a) || *a == NULL)
+		return ;
+	if (get_nelems(*a) < 5)
 	{
-		node = get_cheapest(a, b);
-		pairs_on_top(a, b, node);
-	}
-	sort_3(a);
-}
+		if (get_nelemes(*a) == 2)
+			sort_2(a, b);
+		else
+		{
+			if (get_nelemes(*a) == 4)
+				pb();
+		}
 
+	}
+	else
+	{
+		sort_long(a, b);
+	}
+}

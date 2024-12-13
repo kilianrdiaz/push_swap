@@ -14,7 +14,7 @@
 
 void	sort_3(t_stack **stack)
 {
-	if (check_sorted(*stack))
+	if (is_sorted(*stack))
 		return ;
 	else if (get_min(*stack) == (*stack)->value)
 	{
@@ -24,7 +24,7 @@ void	sort_3(t_stack **stack)
 	else if (get_max(*stack) == (*stack)->value)
 	{
 		ra(stack);
-		if (!check_sorted(*stack))
+		if (!is_sorted(*stack))
 			sa(stack);
 	}
 	else
