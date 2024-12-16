@@ -47,16 +47,22 @@ void	pair_a(t_stack *stack_a, t_stack *b);
 void	pair_b(t_stack *stack_a, t_stack *b);
 void	free_stack(t_stack **stack);
 void    get_moves(t_stack *stack);
+void	move_to_top(t_stack **a, t_stack **b);
+void	move_separate_a(t_stack *node, t_stack **a, t_stack **b);
+void	move_separate_b(t_stack *node, t_stack **a, t_stack **b);
+void	sort(t_stack **a, t_stack **b);
 
 int		get_nelems(t_stack *stack);
 int		get_min(t_stack *stack);
 int		get_max(t_stack *stack);
 int		is_sorted(t_stack *stack);
 int		node_pos(int value, t_stack *stack);
-int		is_upper_half(t_stack *node, t_stack *stack);
+int		ft_ra_rrb(t_stack *node, t_stack *pair);
+int		ft_rra_rb(t_stack *node, t_stack *pair);
 
 t_stack	*create_node(int value, t_stack *last_node);
 t_stack	*get_cheapest(t_stack *a, t_stack *b);
+t_stack *find_node(int value, t_stack *stack);
 
 //ELIMINAR ANTES DE ENTREGAR
 void	print_stack(t_stack *stack_a, t_stack *stack_b);

@@ -34,6 +34,15 @@ void	delete_node(t_stack **node)
 	free(temp);
 }
 
+t_stack	*find_node(int value, t_stack *stack)
+{
+	while (value != stack->value)
+		stack = stack->next;
+	if (value == stack->value)
+		return (stack);
+	return (NULL);
+}
+
 int	node_pos(int value, t_stack *stack)
 {
 	int	i;

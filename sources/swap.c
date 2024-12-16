@@ -21,6 +21,7 @@ void	swap(t_stack *stack)
 	temp = stack->value;
 	stack->value = stack->next->value;
 	stack->next->value = temp;
+	get_moves(stack);
 }
 
 void	sa(t_stack **a)

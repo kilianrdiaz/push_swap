@@ -26,6 +26,7 @@ void	rotate(t_stack **stack)
 	while (iterator->next != NULL)
 		iterator = iterator->next;
 	iterator->next = temp;
+	get_moves(*stack);
 }
 
 void	ra(t_stack **a)

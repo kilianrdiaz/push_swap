@@ -18,8 +18,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 HEADER = header/push_swap.h
 SRC_DIR = sources/
-SRC = push_swap.c get_stack.c print_error.c utils.c swap.c push.c rotate.c reverse.c \
-	sort_3.c node_utils.c pairs.c count_moves.c sort.c
+SRC = push_swap.c get_stack.c print_error.c utils.c swap.c push.c rotate.c reverse.c sort.c move_nodes.c\
+	sort_3.c node_utils.c pairs.c count_moves.c
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
 OBJS = $(SRCS:.c=.o)

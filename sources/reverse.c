@@ -26,6 +26,7 @@ void	reverse_rotate(t_stack **stack)
 	*stack = iterator->next;
 	iterator->next = NULL;
 	(*stack)->next = temp;
+	get_moves(*stack);
 }
 
 void	rra(t_stack **a)

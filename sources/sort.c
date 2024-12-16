@@ -12,28 +12,26 @@
 
 #include "../header/push_swap.h"
 
-void	move_target(t_stack **a, t_stack **b, t_stack *target)
-{
-	target = get_cheapest(*a, *b);
-}
-
 void	sort_long(t_stack **a, t_stack **b)
 {
-	t_stack	*target;
-
 	pb(a, b);
 	pb(a, b);
-	get_moves(a);
-	get_moves(b);
+	get_moves(*a);
+	get_moves(*b);
 	while (get_nelems(*a) > 3)
 	{
-		pair_a(a, b);
-		move_target(a, b);
+		pair_a(*a, *b);
+		move_to_top(a, b);
+		pb(a, b);
 	}
 	sort_3(a);
 	while (*b != NULL)
 	{
+		pair_b(*a, *b);
+		move_separate_b(*b, a, b);
+		pa(a, b);
 	}
+	move_separate_a(find_node(get_min(*a), *a), a, b);
 }
 
 void	sort_4(t_stack **a, t_stack **b)
@@ -45,7 +43,7 @@ void	sort_4(t_stack **a, t_stack **b)
 		node = node->next;
 	if (node->rot < node->rev)
 	{
-		while (node->rot != 0)
+		while (node != *a)
 		{
 			ra(a);
 			get_moves(*a);
@@ -53,12 +51,14 @@ void	sort_4(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		while (node->rev != 0)
+		while (node != *a)
 		{
 			rra(a);
 			get_moves(*a);
 		}
 	}
+	if (is_sorted(*a))
+		return ;
 	pb(a, b);
 	sort_3(a);
 	pa(a, b);

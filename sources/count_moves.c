@@ -25,7 +25,7 @@ void	get_moves(t_stack *stack)
 	}
 }
 
-static int	ft_ra_rrb(t_stack *node, t_stack *pair)
+int	ft_ra_rrb(t_stack *node, t_stack *pair)
 {
 	if ((pair->rot - node->rot) <= pair->rev)
 		return (pair->rot);
@@ -33,7 +33,7 @@ static int	ft_ra_rrb(t_stack *node, t_stack *pair)
 		return (node->rot + pair->rev);
 }
 
-static int	ft_rra_rb(t_stack *node, t_stack *pair)
+int	ft_rra_rb(t_stack *node, t_stack *pair)
 {
 	if ((pair->rev - node->rev) <= pair->rot)
 		return (pair->rev);

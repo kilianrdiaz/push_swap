@@ -72,13 +72,13 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (stack_a != NULL)
 		{
-			ft_printf("%d->%d", stack_a->value, stack_a->pair->value);
+			ft_printf("%d", stack_a->value);
 			stack_a = stack_a->next;
 		}
 		ft_printf("\t |  ");
 		if (stack_b != NULL)
 		{
-			ft_printf("%d->%d", stack_b->value, stack_b->pair->value);
+			ft_printf("%d", stack_b->value);
 			stack_b = stack_b->next;
 		}
 		ft_printf("\n");

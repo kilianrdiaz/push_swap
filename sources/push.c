@@ -19,6 +19,8 @@ void	push(t_stack **src, t_stack **dest)
 	new_node = create_node((*src)->value, *dest);
 	delete_node(src);
 	*dest = new_node;
+	get_moves(*src);
+	get_moves(*dest);
 }
 
 void	pa(t_stack **a, t_stack **b)
