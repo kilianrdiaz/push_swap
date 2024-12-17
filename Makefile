@@ -6,12 +6,12 @@
 #    By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 18:32:05 by kroyo-di          #+#    #+#              #
-#    Updated: 2024/12/13 18:13:24 by kroyo-di         ###   ########.fr        #
+#    Updated: 2024/12/17 19:38:53 by kroyo-di         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g
 
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a

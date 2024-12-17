@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:42:54 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/11 17:35:27 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/17 19:05:10 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (stack_a != NULL)
 		{
-			ft_printf("%d", stack_a->value);
+			ft_printf("%d->%d", stack_a->value, stack_a->pair->value);
 			stack_a = stack_a->next;
 		}
 		ft_printf("\t |  ");

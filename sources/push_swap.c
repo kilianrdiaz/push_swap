@@ -6,7 +6,7 @@
 /*   By: kroyo-di <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:42:17 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/11 18:11:16 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/17 20:28:07 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	get_stack(ac, av, &stack_a);
-	//print_stack(stack_a, stack_b);
 	sort(&stack_a, &stack_b);
-	//print_stack(stack_a, stack_b);
 	free_stack(&stack_a);
 	return (0);
 }
-

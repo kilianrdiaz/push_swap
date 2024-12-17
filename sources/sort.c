@@ -6,7 +6,7 @@
 /*   By: kroyo-di <kroyo-di@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:43:31 by kroyo-di          #+#    #+#             */
-/*   Updated: 2024/12/13 22:59:22 by kroyo-di         ###   ########.fr       */
+/*   Updated: 2024/12/17 20:27:42 by kroyo-di         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	sort_long(t_stack **a, t_stack **b)
 {
 	pb(a, b);
 	pb(a, b);
-	get_moves(*a);
-	get_moves(*b);
 	while (get_nelems(*a) > 3)
 	{
+		get_moves(*a);
+		get_moves(*b);
 		pair_a(*a, *b);
 		move_to_top(a, b);
 		pb(a, b);
@@ -36,32 +36,12 @@ void	sort_long(t_stack **a, t_stack **b)
 
 void	sort_4(t_stack **a, t_stack **b)
 {
-	t_stack	*node;
-
-	node = *a;
-	while (node->value != get_min(*a))
-		node = node->next;
-	if (node->rot < node->rev)
-	{
-		while (node != *a)
-		{
-			ra(a);
-			get_moves(*a);
-		}
-	}
-	else
-	{
-		while (node != *a)
-		{
-			rra(a);
-			get_moves(*a);
-		}
-	}
-	if (is_sorted(*a))
-		return ;
 	pb(a, b);
 	sort_3(a);
+	pair_b(*a, *b);
+	move_separate_b(*b, a, b);
 	pa(a, b);
+	move_separate_a(find_node(get_min(*a), *a), a, b);
 }
 
 void	sort(t_stack **a, t_stack **b)
